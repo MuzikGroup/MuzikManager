@@ -176,7 +176,7 @@ func writePayload(t *testing.T, version string) string {
 	writer := zip.NewWriter(file)
 	files := map[string]string{
 		"install-manifest.json": fmt.Sprintf(`{"schema":1,"appId":"com.muzik.desktop","version":%q,"platform":"windows","architecture":"x86_64","launcher":"Muzik.exe"}`, version),
-		"Muzik.exe":         "launcher",
+		"Muzik.exe":             "launcher",
 	}
 	for name, content := range files {
 		entry, err := writer.Create(name)
