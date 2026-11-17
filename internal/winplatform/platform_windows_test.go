@@ -36,8 +36,8 @@ func TestFindWaitAndTerminateInstalledApp(t *testing.T) {
 	}
 	launcher := filepath.Join(appDirectory, "Muzik.exe")
 	copyFile(t, os.Args[0], launcher)
-	command := exec.Command(launcher, "-test.run=TestMuzzlistHelperProcess")
-	command.Env = append(os.Environ(), "MUZZLIST_TEST_HELPER=1")
+	command := exec.Command(launcher, "-test.run=TestMuzikHelperProcess")
+	command.Env = append(os.Environ(), "MUZIK_TEST_HELPER=1")
 	if err := command.Start(); err != nil {
 		t.Fatal(err)
 	}
@@ -68,8 +68,8 @@ func TestFindWaitAndTerminateInstalledApp(t *testing.T) {
 	}
 }
 
-func TestMuzzlistHelperProcess(t *testing.T) {
-	if os.Getenv("MUZZLIST_TEST_HELPER") != "1" {
+func TestMuzikHelperProcess(t *testing.T) {
+	if os.Getenv("MUZIK_TEST_HELPER") != "1" {
 		return
 	}
 	time.Sleep(30 * time.Second)

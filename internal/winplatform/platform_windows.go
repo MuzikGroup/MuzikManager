@@ -13,7 +13,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/MuzikGroup/MuzzlistManager/internal/installer"
+	"github.com/MuzikGroup/MuzikManager/internal/installer"
 	"github.com/go-ole/go-ole"
 	"github.com/go-ole/go-ole/oleutil"
 	"golang.org/x/sys/windows"
@@ -39,7 +39,7 @@ func AcquireManagerLock() (func(), error) {
 	if err != nil {
 		return nil, fmt.Errorf("read current user SID: %w", err)
 	}
-	name, err := windows.UTF16PtrFromString(`Global\MuzzlistManager-` + user.User.Sid.String())
+	name, err := windows.UTF16PtrFromString(`Global\MuzikManager-` + user.User.Sid.String())
 	if err != nil {
 		return nil, err
 	}

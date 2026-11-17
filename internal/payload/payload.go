@@ -14,7 +14,7 @@ import (
 	"strings"
 	"unicode/utf16"
 
-	"github.com/MuzikGroup/MuzzlistManager/internal/version"
+	"github.com/MuzikGroup/MuzikManager/internal/version"
 )
 
 const (

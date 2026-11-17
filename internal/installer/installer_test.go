@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/MuzikGroup/MuzzlistManager/internal/payload"
+	"github.com/MuzikGroup/MuzikManager/internal/payload"
 )
 
 func TestApplyInstallsAndReplacesAppDirectory(t *testing.T) {

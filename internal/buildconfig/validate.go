@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/MuzikGroup/MuzzlistManager/internal/version"
+	"github.com/MuzikGroup/MuzikManager/internal/version"
 )
 
 var repositoryPartPattern = regexp.MustCompile(`^[A-Za-z0-9_.-]+$`)

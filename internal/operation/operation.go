@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/MuzikGroup/MuzzlistManager/internal/githubrelease"
-	"github.com/MuzikGroup/MuzzlistManager/internal/installer"
-	"github.com/MuzikGroup/MuzzlistManager/internal/payload"
+	"github.com/MuzikGroup/MuzikManager/internal/githubrelease"
+	"github.com/MuzikGroup/MuzikManager/internal/installer"
+	"github.com/MuzikGroup/MuzikManager/internal/payload"
 )
 
 type Stage string

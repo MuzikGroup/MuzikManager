@@ -1,4 +1,4 @@
-module github.com/MuzikGroup/MuzzlistManager
+module github.com/MuzikGroup/MuzikManager
 
 go 1.25.0
 

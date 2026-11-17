@@ -15,7 +15,7 @@ func TestRemoveLauncherBlocksRunningExecutable(t *testing.T) {
 	launcher := filepath.Join(t.TempDir(), "Muzik.exe")
 	copyTestExecutable(t, launcher)
 	command := exec.Command(launcher, "-test.run=TestLauncherHelperProcess")
-	command.Env = append(os.Environ(), "MUZZLIST_LAUNCHER_HELPER=1")
+	command.Env = append(os.Environ(), "MUZIK_LAUNCHER_HELPER=1")
 	if err := command.Start(); err != nil {
 		t.Fatal(err)
 	}
@@ -34,7 +34,7 @@ func TestRemoveLauncherBlocksRunningExecutable(t *testing.T) {
 }
 
 func TestLauncherHelperProcess(t *testing.T) {
-	if os.Getenv("MUZZLIST_LAUNCHER_HELPER") == "1" {
+	if os.Getenv("MUZIK_LAUNCHER_HELPER") == "1" {
 		time.Sleep(30 * time.Second)
 	}
 }

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/MuzikGroup/MuzzlistManager/internal/payload"
+	"github.com/MuzikGroup/MuzikManager/internal/payload"
 )
 
 func main() {

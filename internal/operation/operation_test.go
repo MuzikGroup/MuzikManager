@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/MuzikGroup/MuzzlistManager/internal/githubrelease"
+	"github.com/MuzikGroup/MuzikManager/internal/githubrelease"
 )
 
 type localRelease struct {

@@ -12,14 +12,14 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/MuzikGroup/MuzzlistManager/internal/payload"
-	"github.com/MuzikGroup/MuzzlistManager/internal/version"
+	"github.com/MuzikGroup/MuzikManager/internal/payload"
+	"github.com/MuzikGroup/MuzikManager/internal/version"
 )
 
 const (
 	AppDirectoryName     = "app"
 	ManagerDirectoryName = "manager"
-	ManagerExecutable    = "MuzzlistManager.exe"
+	ManagerExecutable    = "MuzikManager.exe"
 	markerName           = "install.json"
 )
 

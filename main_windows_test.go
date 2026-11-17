@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/MuzikGroup/MuzzlistManager/internal/installer"
+	"github.com/MuzikGroup/MuzikManager/internal/installer"
 )
 
 func TestParseOptionsPreservesSilentOnErrors(t *testing.T) {

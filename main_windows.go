@@ -18,11 +18,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/MuzikGroup/MuzzlistManager/internal/buildconfig"
-	"github.com/MuzikGroup/MuzzlistManager/internal/githubrelease"
-	"github.com/MuzikGroup/MuzzlistManager/internal/installer"
-	"github.com/MuzikGroup/MuzzlistManager/internal/operation"
-	"github.com/MuzikGroup/MuzzlistManager/internal/winplatform"
+	"github.com/MuzikGroup/MuzikManager/internal/buildconfig"
+	"github.com/MuzikGroup/MuzikManager/internal/githubrelease"
+	"github.com/MuzikGroup/MuzikManager/internal/installer"
+	"github.com/MuzikGroup/MuzikManager/internal/operation"
+	"github.com/MuzikGroup/MuzikManager/internal/winplatform"
 	"github.com/lxn/walk"
 	. "github.com/lxn/walk/declarative"
 )
@@ -418,7 +418,7 @@ func runOperation(ctx context.Context, options options, report func(operation.Ev
 	if options.desktopSet {
 		desktopShortcut = &options.desktopShortcut
 	}
-	userAgent := "MuzzlistManager/" + buildconfig.TargetVersion
+	userAgent := "MuzikManager/" + buildconfig.TargetVersion
 	client := githubrelease.NewClient(userAgent)
 	resolveAsset := func(ctx context.Context) (githubrelease.Asset, error) {
 		return client.FindAsset(ctx, buildconfig.RepositoryOwner, buildconfig.RepositoryName, buildconfig.ReleaseTag, buildconfig.DesktopAssetName)
@@ -512,7 +512,7 @@ func startUninstall(purge, force, silent bool, confirmForce func() bool) error {
 	if err != nil {
 		return err
 	}
-	temporary, err := os.CreateTemp("", "MuzzlistManager-uninstall-*.exe")
+	temporary, err := os.CreateTemp("", "MuzikManager-uninstall-*.exe")
 	if err != nil {
 		return err
 	}
@@ -666,7 +666,7 @@ func validateUninstallWorkerPath(root, worker string) error {
 		return errors.New("uninstall worker is not in the temporary directory")
 	}
 	workerName := filepath.Base(worker)
-	if !strings.HasPrefix(workerName, "MuzzlistManager-uninstall-") || !strings.HasSuffix(strings.ToLower(workerName), ".exe") {
+	if !strings.HasPrefix(workerName, "MuzikManager-uninstall-") || !strings.HasSuffix(strings.ToLower(workerName), ".exe") {
 		return errors.New("uninstall worker has an invalid file name")
 	}
 	return nil
@@ -689,9 +689,9 @@ func scheduleSelfRemoval() {
 		"-WindowStyle",
 		"Hidden",
 		"-Command",
-		`Wait-Process -Id $env:MUZZLIST_CLEANUP_PID -ErrorAction SilentlyContinue; Remove-Item -LiteralPath $env:MUZZLIST_CLEANUP_PATH -Force -ErrorAction SilentlyContinue`,
+		`Wait-Process -Id $env:MUZIK_CLEANUP_PID -ErrorAction SilentlyContinue; Remove-Item -LiteralPath $env:MUZIK_CLEANUP_PATH -Force -ErrorAction SilentlyContinue`,
 	)
-	command.Env = append(os.Environ(), "MUZZLIST_CLEANUP_PID="+strconv.Itoa(os.Getpid()), "MUZZLIST_CLEANUP_PATH="+executable)
+	command.Env = append(os.Environ(), "MUZIK_CLEANUP_PID="+strconv.Itoa(os.Getpid()), "MUZIK_CLEANUP_PATH="+executable)
 	command.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
 	if command.Start() == nil {
 		_ = command.Process.Release()

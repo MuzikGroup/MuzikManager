@@ -13,7 +13,7 @@ Muzik Manager for windows 10/11, used to install, update, repair, and uninstall 
     install-manifest.json
     ...
   manager\
-    MuzzlistManager.exe
+    MuzikManager.exe
     install.json
 ```
 
@@ -23,10 +23,10 @@ Muzik Manager for windows 10/11, used to install, update, repair, and uninstall 
 ## Commands
 
 ```text
-MuzzlistManager.exe install
-MuzzlistManager.exe update --pid <desktop-pid>
-MuzzlistManager.exe repair
-MuzzlistManager.exe uninstall
+MuzikManager.exe install
+MuzikManager.exe update --pid <desktop-pid>
+MuzikManager.exe repair
+MuzikManager.exe uninstall
 ```
 
 Every command supports `--silent`. Run `go test ./...`. Validate a release archive, including every entry's expanded size and CRC, with:
@@ -40,11 +40,11 @@ An equivalent cross-build from a Muzik-KMP checkout can be done with the followi
 ```bash
 go run github.com/akavel/rsrc@v0.10.2 \
   -arch amd64 \
-  -manifest MuzzlistManager.exe.manifest \
+  -manifest MuzikManager.exe.manifest \
   -ico ../Muzik-KMP/desktopApp/src/jvmMain/resources/logo.ico \
   -o rsrc_windows_amd64.syso
 GOOS=windows GOARCH=amd64 CGO_ENABLED=0 \
-  go build -trimpath -ldflags "-s -w -H=windowsgui" -o MuzzlistManager.exe .
+  go build -trimpath -ldflags "-s -w -H=windowsgui" -o MuzikManager.exe .
 rm rsrc_windows_amd64.syso
 ```
 
